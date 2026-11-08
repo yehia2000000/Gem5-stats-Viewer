@@ -1,0 +1,521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>StatsViewer</class>
+ <widget class="QMainWindow" name="StatsViewer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>gem5 stats viewer</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="centralLayout">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="leftPanel">
+       <property name="minimumSize">
+        <size>
+         <width>240</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>380</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <layout class="QVBoxLayout" name="leftLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="logoLabel">
+          <property name="minimumSize">
+           <size>
+            <width>224</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>224</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="toolTip">
+           <string>Si-Vision Academy</string>
+          </property>
+          <property name="pixmap">
+           <pixmap>sivision_logo.png</pixmap>
+          </property>
+          <property name="scaledContents">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="filesGroup">
+          <property name="title">
+           <string>Files</string>
+          </property>
+          <layout class="QGridLayout" name="filesLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="statsLabel">
+             <property name="text">
+              <string>stats.txt</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="statsPathEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>m5out/stats.txt</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QToolButton" name="browseStatsButton">
+             <property name="toolTip">
+              <string>Choose stats.txt</string>
+             </property>
+             <property name="text">
+              <string>…</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="logLabel">
+             <property name="text">
+              <string>run.log</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="logPathEdit">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+             <property name="placeholderText">
+              <string>benchmark output (section legend)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QToolButton" name="browseLogButton">
+             <property name="toolTip">
+              <string>Choose the benchmark output with the &quot;section n = frame f stage&quot; lines</string>
+             </property>
+             <property name="text">
+              <string>…</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="3">
+            <widget class="QPushButton" name="loadButton">
+             <property name="text">
+              <string>Load</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="3">
+            <widget class="QLabel" name="fileInfoLabel">
+             <property name="text">
+              <string>No file loaded</string>
+             </property>
+             <property name="wordWrap">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="kernelsGroup">
+          <property name="title">
+           <string>Kernels</string>
+          </property>
+          <layout class="QVBoxLayout" name="kernelsLayout">
+           <item>
+            <widget class="QListWidget" name="kernelList">
+             <property name="toolTip">
+              <string>Tick the kernels to show as columns</string>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="selectionMode">
+              <enum>QAbstractItemView::ExtendedSelection</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="kernelButtonsLayout">
+             <item>
+              <widget class="QPushButton" name="selectAllButton">
+               <property name="text">
+                <string>All</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="selectNoneButton">
+               <property name="text">
+                <string>None</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="viewGroup">
+          <property name="title">
+           <string>View</string>
+          </property>
+          <layout class="QVBoxLayout" name="viewLayout">
+           <item>
+            <widget class="QRadioButton" name="perStageRadio">
+             <property name="toolTip">
+              <string>Sections of the same stage summed, divided by the number of frames (like the Timer table). Ratios are recomputed, not summed.</string>
+             </property>
+             <property name="text">
+              <string>Per stage (per frame)</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="perSectionRadio">
+             <property name="toolTip">
+              <string>One column per stats.txt section (each call on its own)</string>
+             </property>
+             <property name="text">
+              <string>Per section</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="developersLabel">
+          <property name="styleSheet">
+           <string notr="true">color: gray;</string>
+          </property>
+          <property name="text">
+           <string>Developed by Mina Ayad &amp; Yehia Shahin</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="rightPanel">
+       <layout class="QVBoxLayout" name="rightLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" name="filterLayout">
+          <item>
+           <widget class="QLabel" name="presetLabel">
+            <property name="text">
+             <string>Preset:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="presetCombo">
+            <property name="toolTip">
+             <string>A ready set of stats; Search filters inside it</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>All stats</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Core (cycles, instructions, IPC)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Topdown (dispatch stalls)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Memory (caches, misses)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Vector mix (committed op classes)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Spills (whole-register load/store)</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="searchLabel">
+            <property name="text">
+             <string>Search:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="searchEdit">
+            <property name="placeholderText">
+             <string>stat name, e.g. dispatchStallReason</string>
+            </property>
+            <property name="clearButtonEnabled">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="regexCheck">
+            <property name="toolTip">
+             <string>Treat Search as a regular expression</string>
+            </property>
+            <property name="text">
+             <string>Regex</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="hideZerosCheck">
+            <property name="toolTip">
+             <string>Hide stats that are 0 (or nan) in every shown kernel</string>
+            </property>
+            <property name="text">
+             <string>Hide zeros</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableView" name="statsTable">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="alternatingRowColors">
+           <bool>true</bool>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="wordWrap">
+           <bool>false</bool>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="bottomLayout">
+          <item>
+           <widget class="QLabel" name="countLabel">
+            <property name="text">
+             <string>0 stats shown</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="bottomSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="copyButton">
+            <property name="toolTip">
+             <string>Copy the selected rows (tab separated)</string>
+            </property>
+            <property name="text">
+             <string>Copy</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="exportCsvButton">
+            <property name="text">
+             <string>Export CSV…</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpenStats"/>
+    <addaction name="actionOpenLog"/>
+    <addaction name="separator"/>
+    <addaction name="actionExportCsv"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpenStats">
+   <property name="text">
+    <string>Open stats.txt…</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionOpenLog">
+   <property name="text">
+    <string>Open run.log…</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionExportCsv">
+   <property name="text">
+    <string>Export CSV…</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>browseStatsButton</tabstop>
+  <tabstop>browseLogButton</tabstop>
+  <tabstop>loadButton</tabstop>
+  <tabstop>kernelList</tabstop>
+  <tabstop>perStageRadio</tabstop>
+  <tabstop>perSectionRadio</tabstop>
+  <tabstop>presetCombo</tabstop>
+  <tabstop>searchEdit</tabstop>
+  <tabstop>regexCheck</tabstop>
+  <tabstop>hideZerosCheck</tabstop>
+  <tabstop>statsTable</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionQuit</sender>
+   <signal>triggered()</signal>
+   <receiver>StatsViewer</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>599</x>
+     <y>379</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
