@@ -1,0 +1,162 @@
+[ 50%] Built target RISCV_CV_gem5
+[ 92%] Built target reference_gem5
+[ 92%] Built target nexus_am_archives
+[100%] Built target KCF_benchmark_gem5
+[100%] Running KCF_benchmark_gem5 on gem5 with 1 core(s) (output -> /home/yehia/nexus-am/apps/High-Speed-Tracking-with-Kernelized-Correlation-Filters/build/benchmark/KCF_benchmark_gem5.log)
+Global frequency set at 1000000000000 ticks per second
+WARNING: Output directory ext/dramsim3/DRAMsim3/ not exists! Using current directory for output!
+build/RISCV/arch/riscv/bare_metal/fs_workload.cc:61: info: No bootload provided, because using XS GCPT, reset to 0x80000000
+build/RISCV/base/statistics.hh:281: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+build/RISCV/base/statistics.hh:281: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+build/RISCV/cpu/pred/btb/btb_tage.cc:144: warn: BTBTAGE: Bank simulation works better with updateOnRead=true
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (20) does not divide range [1:64] into equal-sized buckets. Rounding up.
+Dispatch Grouping: No_OpClass 
+Dispatch Grouping: IntAlu 
+Dispatch Grouping: IntBr 
+Dispatch Grouping: IntJp 
+Dispatch Grouping: IntMult IntDiv 
+Dispatch Grouping: Int2Fp 
+Dispatch Grouping: StoreData 
+Dispatch Grouping: FloatAdd FloatMult FloatMultAcc 
+Dispatch Grouping: FloatDiv FloatSqrt 
+Dispatch Grouping: FloatCmp FloatCvt FloatMv FloatMisc 
+Dispatch Grouping: IprAccess InstPrefetch 
+Dispatch Grouping: MemRead FloatMemRead VectorUnitStrideLoad VectorSegUnitStrideLoad VectorUnitStrideMaskLoad VectorSegUnitStrideMaskLoad VectorStridedLoad VectorSegStridedLoad VectorIndexedLoad VectorSegIndexedLoad VectorUnitStrideFaultOnlyFirstLoad VectorWholeRegisterLoad 
+Dispatch Grouping: MemWrite FloatMemWrite MemAtomic VectorUnitStrideStore VectorSegUnitStrideStore VectorUnitStrideMaskStore VectorStridedStore VectorIndexedStore VectorWholeRegisterStore 
+Dispatch Grouping: VectorIntegerArith VectorFloatArith VectorFloatConvert VectorIntegerReduce VectorFloatReduce VectorMisc VectorIntegerExtension VectorConfig 
+build/RISCV/cpu/o3/issue_queue.cc:1494: warn: No config for opClass: IprAccess
+build/RISCV/cpu/o3/issue_queue.cc:1494: warn: No config for opClass: InstPrefetch
+build/RISCV/cpu/base.cc:257: warn: Difftest is disabled
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (5) does not divide range [11:100] into equal-sized buckets. Rounding up.
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (20) does not divide range [1:500] into equal-sized buckets. Rounding up.
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (20) does not divide range [1:500] into equal-sized buckets. Rounding up.
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (5) does not divide range [1:160] into equal-sized buckets. Rounding up.
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (10) does not divide range [1:100] into equal-sized buckets. Rounding up.
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (8) does not divide range [1:160] into equal-sized buckets. Rounding up.
+build/RISCV/base/stats/storage.hh:279: warn: Bucket size (6) does not divide range [1:256] into equal-sized buckets. Rounding up.
+build/RISCV/cpu/o3/cpu.cc:246: warn: Setting isa ptr of cpu to 0x5b0d5fc94c00
+build/RISCV/mem/cache/replacement_policies/tree_plru_rp.cc:108: warn: Number of leaves must be non-zero and a power of 2
+build/RISCV/mem/cache/replacement_policies/tree_plru_rp.cc:108: warn: Number of leaves must be non-zero and a power of 2
+build/RISCV/mem/cache/prefetch/associative_set_impl.hh:45: warn: The number of entries of an AssociativeSet<> must be a power of 2
+build/RISCV/mem/cache/prefetch/associative_set_impl.hh:47: warn: The associativity of an AssociativeSet<> must be a power of 2
+build/RISCV/mem/cache/prefetch/associative_set_impl.hh:45: warn: The number of entries of an AssociativeSet<> must be a power of 2
+build/RISCV/mem/cache/prefetch/associative_set_impl.hh:47: warn: The associativity of an AssociativeSet<> must be a power of 2
+      0: system.rtc: Real-time clock set to Sun Jan  1 00:00:00 2012
+build/RISCV/mem/physical.cc:509: warn: Unserializing physical memory from file /home/yehia/nexus-am/apps/High-Speed-Tracking-with-Kernelized-Correlation-Filters/build/benchmark/KCF_benchmark.bin
+build/RISCV/mem/physical.cc:580: info: copying /home/yehia/nexus-am/apps/High-Speed-Tracking-with-Kernelized-Correlation-Filters/build/benchmark/KCF_benchmark.bin to pmem 0x7aea38397000
+build/RISCV/mem/physical.cc:610: info: First 4 bytes are 0x93 0x0 0x0 0x0
+build/RISCV/sim/system.cc:561: info: Restored from Xiangshan RISC-V Checkpoint
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version [DEVELOP-FOR-22.1]
+gem5 compiled Sep 15 2026 15:18:56
+gem5 started Nov  7 2026 11:35:54
+gem5 executing on Yehia, pid 2293
+command line: /home/yehia/riscv/GEM5/build/RISCV/gem5.opt --remote-gdb-port=0 -d /home/yehia/nexus-am/apps/High-Speed-Tracking-with-Kernelized-Correlation-Filters/build/benchmark/KCF_benchmark_gem5-m5out /home/yehia/riscv/GEM5/configs/example/kmhv3.py -n 1 --raw-cpt --generic-rv-cpt=/home/yehia/nexus-am/apps/High-Speed-Tracking-with-Kernelized-Correlation-Filters/build/benchmark/KCF_benchmark.bin --disable-difftest --maxinsts=2000000000
+
+[<m5.params.AddrRange object at 0x7aec388a2190>]
+Checkpoint mode: Using standard FS mode with normal MMU translation
+Simulating single core without RVV, demanding GCPT restorer size of 0x700.
+Using raw bbl /home/yehia/nexus-am/apps/High-Speed-Tracking-with-Kernelized-Correlation-Filters/build/benchmark/KCF_benchmark.bin
+Attach 1 decoders to thread with addr: <orphan System>.cpu.decoder
+Create threads for test sys cpu (XiangshanCore)
+create_prefetcher at l2: PrefetcherForwarder
+create_prefetcher at l2: PrefetcherForwarder
+create_prefetcher at l2: PrefetcherForwarder
+create_prefetcher at l2: PrefetcherForwarder
+create_prefetcher at l2_wrapper: L2CompositeWithWorkerPrefetcher
+create_prefetcher at l3: WorkerPrefetcher
+create_prefetcher at l1i: None
+create_prefetcher at l1d: XSCompositePrefetcher
+Finish memory system configuration
+Disable regfile arbitration
+No switch cpu_class provided
+Registering probe listeners for BaseO3CPU system.cpu
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher
+system.cpu.dcache.prefetcher addTLB system.cpu.mmu.dtb
+system.cpu.dcache.prefetcher addHintDownStream system.l2_wrappers.prefetcher
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.berti
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.bop_large
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.bop_learned
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.bop_small
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.cmc
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.ipcp
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.opt
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.spp
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.sstride
+Registering probe listeners for Prefetcher system.cpu.dcache.prefetcher.xsstream
+Registering inner cache accessors for L2CacheWrapper system.l2_wrappers
+Registering probe listeners for Prefetcher system.l2_wrappers.prefetcher
+system.l2_wrappers.prefetcher addTLB system.cpu.mmu.dtb
+system.l2_wrappers.prefetcher addHintDownStream system.l3.prefetcher
+Registering probe listeners for Prefetcher system.l2_wrappers.prefetcher.bop_large
+Registering probe listeners for Prefetcher system.l2_wrappers.prefetcher.bop_small
+Registering probe listeners for Prefetcher system.l2_wrappers.prefetcher.cdp
+Registering probe listeners for Prefetcher system.l2_wrappers.prefetcher.cmc
+Registering probe listeners for Prefetcher system.l2_wrappers.prefetcher.despacito_stream
+Registering inner cache accessor for L2CacheSlice system.l2_wrappers.slices0
+Registering probe listeners for Prefetcher system.l2_wrappers.slices0.inner_cache.prefetcher
+system.l2_wrappers.slices0.inner_cache.prefetcher addTLB system.cpu.mmu.dtb
+Registering inner cache accessor for L2CacheSlice system.l2_wrappers.slices1
+Registering probe listeners for Prefetcher system.l2_wrappers.slices1.inner_cache.prefetcher
+system.l2_wrappers.slices1.inner_cache.prefetcher addTLB system.cpu.mmu.dtb
+Registering inner cache accessor for L2CacheSlice system.l2_wrappers.slices2
+Registering probe listeners for Prefetcher system.l2_wrappers.slices2.inner_cache.prefetcher
+system.l2_wrappers.slices2.inner_cache.prefetcher addTLB system.cpu.mmu.dtb
+Registering inner cache accessor for L2CacheSlice system.l2_wrappers.slices3
+Registering probe listeners for Prefetcher system.l2_wrappers.slices3.inner_cache.prefetcher
+system.l2_wrappers.slices3.inner_cache.prefetcher addTLB system.cpu.mmu.dtb
+Registering probe listeners for Prefetcher system.l3.prefetcher
+**** REAL SIMULATION ****
+build/RISCV/sim/simulate.cc:194: info: Entering event queue @ 0.  Starting simulation...
+build/RISCV/dev/serial/uartlite.cc:35: warn: Write to other uartlite addr 12 is not implemented
+build/RISCV/cpu/o3/issue_queue.cc:360: warn: Tt's should not happen on classic cache, it may be wrong delay of load wake or missed loadcancel in lsq
+KCF benchmark: david, 320x240, 2 timed frames, template 136 px, 32x32 cells, 31 channels
+heap start = 80461000
+frame 2: centre 153.41 118.51, 4610118 cycles, 2362168 instructions, 2.41 px from ground truth
+frame 3: centre 146.50 115.68, 4604420 cycles, 2362166 instructions, 3.43 px from ground truth
+
+kernel             version      cycles/frame    instr/frame  calls   % flow
+K1_subwindow       vec                840932         345908      2    18.3%
+K2_gradient        vec               1494002         603690      2    32.4%
+K3_histogram       vec                939281         227008      2    20.4%
+K4_norm_pca_hann   vec                165292         186264      2     3.6%
+layout_to_planar   none                    0              0      0     0.0%
+K5_spectra_31fft   vec                841977         805722      2    18.3%
+K5_detect          vec                153370          98068      1     3.3%
+K6_peak            vec                   683            342      1     0.0%
+K5_train           vec                170615          94694      1     3.7%
+other                                   1115            471            0.0%
+flow total                           4607269        2362167
+
+stats.txt sections: 13 per frame, 2 frames, then gem5's dump at exit
+  section   1 = frame 2 K1_subwindow
+  section   2 = frame 2 K2_gradient
+  section   3 = frame 2 K3_histogram
+  section   4 = frame 2 K4_norm_pca_hann
+  section   5 = frame 2 K5_spectra_31fft
+  section   6 = frame 2 K5_detect
+  section   7 = frame 2 K6_peak
+  section   8 = frame 2 K1_subwindow
+  section   9 = frame 2 K2_gradient
+  section  10 = frame 2 K3_histogram
+  section  11 = frame 2 K4_norm_pca_hann
+  section  12 = frame 2 K5_spectra_31fft
+  section  13 = frame 2 K5_train
+  section  14 = frame 3 K1_subwindow
+  section  15 = frame 3 K2_gradient
+  section  16 = frame 3 K3_histogram
+  section  17 = frame 3 K4_norm_pca_hann
+  section  18 = frame 3 K5_spectra_31fft
+  section  19 = frame 3 K5_detect
+  section  20 = frame 3 K6_peak
+  section  21 = frame 3 K1_subwindow
+  section  22 = frame 3 K2_gradient
+  section  23 = frame 3 K3_histogram
+  section  24 = frame 3 K4_norm_pca_hann
+  section  25 = frame 3 K5_spectra_31fft
+  section  26 = frame 3 K5_train
+Output is correct.
+Exiting @ tick 5100289938 because m5_exit instruction encountered when simulating XS
+[100%] Built target run_KCF_benchmark_gem5
